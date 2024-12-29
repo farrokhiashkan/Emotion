@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form</title>
+</head>
+<body>
+  <h1>Enter Your Name</h1>
+  <form id="nameForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br><br>
+    <input type="submit" value="Submit">
+  </form>
+  
+  <script src="form.js"></script>
+</body>
+</html>
+
+<script>
+document.getElementById('nameForm').addEventListener('submit', function(event) {
+  event.preventDefault();  // Prevent form submission
+  
+  let name = document.getElementById('name').value;
+
+  if (name) {
+    fetch('https://script.google.com/macros/s/AKfycbyC-ihfgqdTDhLxWVeWmmhnZo6WM2b6fyAp5HXHgkx_z-FcJ76J09zvGlPPv8waCjju/exec', {
+      method: 'POST',
+      body: JSON.stringify({ name: name }),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => response.json())
+    .then(data => alert('Form Submitted Successfully'))
+    .catch(error => console.error('Error:', error));
+  } else {
+    alert('Please enter your name');
+  }
+});
+</script>
