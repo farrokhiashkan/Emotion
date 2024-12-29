@@ -24,7 +24,7 @@ document.getElementById('nameForm').addEventListener('submit', function(event) {
   let name = document.getElementById('name').value;
 
   if (name) {
-    fetch('https://script.google.com/macros/s/AKfycbyC-ihfgqdTDhLxWVeWmmhnZo6WM2b6fyAp5HXHgkx_z-FcJ76J09zvGlPPv8waCjju/exec', {
+    fetch('https://script.google.com/macros/s/AKfycbwBZNS9oElURcg0ZL_C1XgKdykfuz4Bua6VKp6dBmY/exec', {
       method: 'POST',
       body: JSON.stringify({ name: name }),
       headers: {
